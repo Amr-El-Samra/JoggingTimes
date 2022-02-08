@@ -25,6 +25,14 @@ Route::post('/login', [ApiAuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function() {
     Route::post('/logout', [ApiAuthController::class, 'logout']);
 
+    Route::post('/joggingtimes', [ApiUserController::class, 'create']);
+    Route::get('/joggingtimes', [ApiUserController::class, 'show']);
+    Route::put('/joggingtimes/{id}', [ApiUserController::class, 'update']);
+    Route::delete('/joggingtimes/{id}', [ApiUserController::class, 'delete']);
+
+
+
+
 
 
 });
