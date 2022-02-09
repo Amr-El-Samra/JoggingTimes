@@ -17,6 +17,12 @@ class IsManager
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if(Auth::user()->role->name == 'manager'){
+            return $next($request);
+        }
+
+        return response()->json([
+            'msg' => 'Unauthorised',
+        ]);
     }
 }
