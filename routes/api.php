@@ -35,6 +35,14 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::put('/users/{id}', [ApiManagerController::class, 'update'])->middleware('manager');
     Route::delete('/users/{id}', [ApiManagerController::class, 'deleteUser'])->middleware('managerAdmin');
 
+    Route::post('/admins/users', [ApiAdminController::class, 'createUser'])->middleware('admin');
+    Route::post('/admins/joggingtimes', [ApiAdminController::class, 'createRecord'])->middleware('admin');
+    Route::get('/admins', [ApiAdminController::class, 'show'])->middleware('admin');
+    Route::put('/admins/user/{id}', [ApiAdminController::class, 'updateUser'])->middleware('admin');
+    Route::put('/admins/joggingtime/{id}', [ApiAdminController::class, 'updateRecord'])->middleware('admin');
+    Route::delete('/admins/joggingtime/{id}', [ApiAdminController::class, 'deleteRecord'])->middleware('admin');
+
+    
 
 
 
