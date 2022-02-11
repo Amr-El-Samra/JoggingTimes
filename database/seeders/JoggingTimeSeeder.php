@@ -16,21 +16,35 @@ class JoggingTimeSeeder extends Seeder
     {
         JoggingTime::create([
             'time_mins' => '15',
-            'date' => '2022-1-1',
+            'date' => '2022-2-7',
             'distance' => '3',
-            'user_id' => '1'
+            'user_id' => '3'
         ]);
 
         JoggingTime::create([
             'time_mins' => '20',
-            'date' => '2022-1-3',
+            'date' => '2022-2-3',
             'distance' => '5',
-            'user_id' => '2'
+            'user_id' => '3'
         ]);
 
         JoggingTime::create([
             'time_mins' => '25',
-            'date' => '2022-1-5',
+            'date' => '2022-2-10',
+            'distance' => '4',
+            'user_id' => '5'
+        ]);
+
+        JoggingTime::create([
+            'time_mins' => '25',
+            'date' => '2022-2-10',
+            'distance' => '4',
+            'user_id' => '3'
+        ]);
+
+        JoggingTime::create([
+            'time_mins' => '25',
+            'date' => '2022-2-13',
             'distance' => '4',
             'user_id' => '3'
         ]);

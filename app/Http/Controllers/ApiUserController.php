@@ -103,5 +103,30 @@ class ApiUserController extends Controller
         ]);
     }
 
+    public function report($userId){
+        $user = User::find($userId);
+        
+        if($user == null){
+            return response()->json([
+                'msg' => '404 not found'
+            ]);
+        }
+
+        $data = $user->joggingTimes()
+            ->where('user_id', $userId)
+            ->where('date', '>=', now()->startOfWeek())
+            ->where('date', '<=', now()->endOfWeek());
+
+        $distance = $data->sum('distance');
+        $time = $data->sum('time_mins');
+        $speed = $distance / $time;
+        $avgDistance = $data->avg('distance');
+        
+        return response()->json([
+            'Speed' => $speed,
+            'Average Distance' => $avgDistance,
+        ]);
+    }
+
 
 }

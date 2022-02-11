@@ -42,14 +42,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::put('/admins/joggingtime/{id}', [ApiAdminController::class, 'updateRecord'])->middleware('admin');
     Route::delete('/admins/joggingtime/{id}', [ApiAdminController::class, 'deleteRecord'])->middleware('admin');
 
-    
-
-
-
-
-
-
-
+    Route::get('/profile/{id}', [ApiUserController::class, 'report']);
 
 });
 
